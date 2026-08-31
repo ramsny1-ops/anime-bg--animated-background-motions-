@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="description" content="Layered anime-style aura rings, energy sparks, arcs, and pointer-reactive pressure waves.">
+  <meta name="theme-color" content="#07090d">
+  <title>Aura Energy Field | anime-bg</title>
+  <link rel="stylesheet" href="./style.css">
+  <script src="./script.js" defer></script>
+</head>
+<body>
+  <main class="stage" id="stage" data-embed="false">
+    <canvas id="scene" aria-label="Aura Energy Field interactive canvas background"></canvas>
+    <header class="topbar">
+      <div class="topbar__group">
+        <a class="back" href="../../index.html">Back to gallery</a>
+        <div class="title-wrap"><p class="eyebrow">anime-bg visual laboratory</p><h1 class="title">Aura Energy Field</h1></div>
+      </div>
+      <button class="icon-button" id="panelToggleButton" type="button" aria-controls="controlPanel" aria-expanded="true">Controls</button>
+    </header>
+    <aside class="panel" id="controlPanel" data-collapsed="false">
+      <div class="panel__header"><div class="panel__header-row"><div><h2>Live studio</h2><p class="panel-intro">Tune the scene, save presets, export configuration, inspect diagnostics, and capture snapshots.</p></div></div></div>
+      <div class="panel__body">
+        <section class="section"><h3 class="section-title">Presets</h3><div class="preset-grid">
+          <button type="button" data-preset="calm">Calm</button><button type="button" data-preset="balanced">Balanced</button><button type="button" data-preset="dense">Dense</button><button type="button" data-preset="energetic">Energetic</button>
+        </div></section>
+        <section class="section"><h3 class="section-title">Simulation</h3><div class="controls">
+<div class="control">
+  <label for="count">Particle count</label>
+  <output id="countValue"></output>
+  <input id="count" type="range" min="20" max="420" step="1">
+</div>
+<div class="control">
+  <label for="speed">Speed</label>
+  <output id="speedValue"></output>
+  <input id="speed" type="range" min="0.1" max="4" step="0.1">
+</div>
+<div class="control">
+  <label for="size">Particle size</label>
+  <output id="sizeValue"></output>
+  <input id="size" type="range" min="0.5" max="12" step="0.1">
+</div>
+<div class="control">
+  <label for="intensity">Animation intensity</label>
+  <output id="intensityValue"></output>
+  <input id="intensity" type="range" min="0" max="3" step="0.05">
+</div>
+<div class="control checkbox">
+  <input id="pointerEnabled" type="checkbox">
+  <label for="pointerEnabled">Pointer interaction</label>
+</div>
+</div></section>
+        <section class="section"><h3 class="section-title">Effect parameters</h3><div class="controls">
+<div class="control"><label for="ringCount">Aura rings</label><output id="ringCountValue"></output><input id="ringCount" type="range" min="2" max="16" step="1"></div>
+<div class="control"><label for="auraRadius">Aura radius</label><output id="auraRadiusValue"></output><input id="auraRadius" type="range" min="60" max="420" step="1"></div>
+<div class="control"><label for="arcChance">Arc density</label><output id="arcChanceValue"></output><input id="arcChance" type="range" min="0" max="1" step="0.01"></div>
+<div class="control"><label for="turbulence">Turbulence</label><output id="turbulenceValue"></output><input id="turbulence" type="range" min="0" max="3" step="0.05"></div></div></section>
+        <section class="section"><h3 class="section-title">Palette</h3><div class="controls">
+<div class="control"><label for="particleColor">Primary color</label><input id="particleColor" type="color"></div>
+<div class="control"><label for="accentColor">Accent color</label><input id="accentColor" type="color"></div>
+<div class="control"><label for="backgroundColor">Background</label><input id="backgroundColor" type="color"></div>
+</div></section>
+        <section class="section"><h3 class="section-title">Rendering</h3><div class="controls"><div class="control"><label for="qualityScale">Quality scale</label><select id="qualityScale"><option value="0.5">Low</option><option value="0.75">Medium</option><option value="1" selected>High</option><option value="1.25">Ultra</option></select><p class="control-note">Reduce internal canvas resolution on low-power devices without changing the layout size.</p></div></div></section>
+        <section class="section"><h3 class="section-title">Playback</h3><div class="actions"><button class="primary" id="pauseButton" type="button">Pause</button><button id="resetButton" type="button">Reset</button><button id="randomButton" type="button">Randomize</button></div></section>
+        <section class="section"><h3 class="section-title">Configuration</h3><div class="actions"><button id="savePresetButton" type="button">Save preset</button><button id="loadPresetButton" type="button">Load preset</button><button id="exportButton" type="button">Export JSON</button></div><div class="actions"><button id="importButton" type="button">Import JSON</button><button id="copyConfigButton" type="button">Copy config</button><button id="snapshotButton" type="button">Save snapshot</button></div><input class="hidden-file" id="importFile" type="file" accept="application/json,.json"><p class="status-line" id="statusLine" role="status" aria-live="polite"></p></section>
+        <section class="section"><h3 class="section-title">Diagnostics</h3><div class="stats" aria-live="polite"><div class="stat"><span>FPS</span><strong id="fpsStat">0</strong></div><div class="stat"><span>Frame</span><strong id="frameStat">0 ms</strong></div><div class="stat"><span>Particles</span><strong id="particleStat">0</strong></div><div class="stat"><span>Pointer</span><strong id="pointerStat">Idle</strong></div><div class="stat"><span>Canvas</span><strong id="canvasStat">0 × 0</strong></div><div class="stat"><span>DPR</span><strong id="dprStat">1.00</strong></div></div></section>
+        <section class="section"><h3 class="section-title">Keyboard shortcuts</h3><dl class="shortcuts"><dt>Pause or resume</dt><dd>Space</dd><dt>Reset defaults</dt><dd>R</dd><dt>Toggle controls</dt><dd>C</dd><dt>Save snapshot</dt><dd>S</dd><dt>Export config</dt><dd>E</dd></dl></section>
+      </div>
+    </aside>
+  </main>
+</body>
+</html>

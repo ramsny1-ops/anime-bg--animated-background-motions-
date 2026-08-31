@@ -1,0 +1,54 @@
+name: Bug report
+description: Report a reproducible anime-bg problem
+title: "[Bug]: "
+labels: ["bug"]
+body:
+  - type: dropdown
+    id: effect
+    attributes:
+      label: Effect
+      options:
+        - Main gallery
+        - Spider Network
+        - Particle Constellation
+        - Mouse Gravity
+        - Particle Trails
+        - Neural Network
+        - Firefly Field
+        - Wave Particles
+        - Vortex Particles
+        - Digital Rain
+        - Orbital System
+        - Documentation or tooling
+    validations:
+      required: true
+  - type: textarea
+    id: description
+    attributes:
+      label: What happened?
+      description: Describe the problem and what you expected instead.
+    validations:
+      required: true
+  - type: textarea
+    id: steps
+    attributes:
+      label: Reproduction steps
+      placeholder: "1. Open...
+2. Change...
+3. Observe..."
+    validations:
+      required: true
+  - type: input
+    id: browser
+    attributes:
+      label: Browser and version
+    validations:
+      required: true
+  - type: input
+    id: os
+    attributes:
+      label: Operating system
+  - type: textarea
+    id: notes
+    attributes:
+      label: Additional context

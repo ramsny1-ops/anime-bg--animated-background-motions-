@@ -1,0 +1,30 @@
+name: Feature request
+description: Propose an improvement or new creative-coding capability
+title: "[Feature]: "
+labels: ["enhancement"]
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: Problem or opportunity
+      description: What would become easier, clearer, faster, or more expressive?
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: Proposed solution
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: Alternatives considered
+  - type: checkboxes
+    id: compatibility
+    attributes:
+      label: Project principles
+      options:
+        - label: The proposal can remain framework-free or clearly justifies a dependency.
+        - label: The proposal can preserve standalone effect folders.
+        - label: I considered mobile and accessibility behavior.

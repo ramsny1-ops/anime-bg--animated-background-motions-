@@ -1,0 +1,36 @@
+<!doctype html><html lang="en" data-theme="dark"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><meta name="description" content="Control palettes, motion, density, interaction, presets, JSON configuration, and embedding behavior."><title>Customization | anime-bg</title><link rel="stylesheet" href="./assets/docs.css"><script src="./assets/docs.js" defer></script></head><body>
+<header class="app-header"><div class="header-inner"><a class="brand" href="../index.html"><span class="brand-mark">AB</span><span>anime-bg</span></a><div class="header-actions"><a class="btn hide-mobile" href="../index.html">Effect gallery</a><button class="icon-btn mobile-nav" id="mobileNavButton" type="button">Menu</button><button class="icon-btn" id="themeButton" type="button">Light</button></div></div></header>
+<div class="layout"><aside class="sidebar"><input class="searchbox" aria-label="Documentation search" placeholder="Documentation"><div class="nav-label">Documentation</div><a class="nav-link" href="index.html"><span>Project README</span></a><a class="nav-link" href="customization.html"><span>Customization</span></a><a class="nav-link" href="performance.html"><span>Performance</span></a><a class="nav-link" href="contributing.html"><span>Contributing</span></a><a class="nav-link" href="architecture.html"><span>Architecture</span></a><a class="nav-link" href="accessibility.html"><span>Accessibility</span></a><a class="nav-link" href="security.html"><span>Security</span></a><a class="nav-link" href="support.html"><span>Support</span></a><a class="nav-link" href="roadmap.html"><span>Roadmap</span></a><a class="nav-link" href="code-of-conduct.html"><span>Code of conduct</span></a><div class="nav-label">Project</div><a class="nav-link" href="../CONTRIBUTING.md">Markdown source</a><a class="nav-link" href="../effects/01-spider-network/index.html">Open a demo</a></aside><main class="content"><article class="article"><div class="breadcrumbs"><a href="../index.html">anime-bg</a><span>/</span><span>Customization</span></div><header class="doc-hero"><div class="eyebrow">anime-bg documentation</div><h1>Customization</h1><p class="lead">Control palettes, motion, density, interaction, presets, JSON configuration, and embedding behavior.</p><div class="meta-row"><span class="pill">v3.0.0</span><span class="pill">15 effects</span><span class="pill">Vanilla JavaScript</span><span class="pill">No runtime dependencies</span></div></header><div class="toc"><strong>Customization layers</strong><a href="#runtime">Runtime controls</a><a href="#defaults">Defaults</a><a href="#palette">Palette</a><a href="#embed">Embed mode</a><a href="#json">JSON</a></div>
+<h2 id="runtime">Customize without editing code</h2><p>Every effect exposes a live studio with simulation controls, effect-specific parameters, palette inputs, rendering quality, playback, preset persistence, configuration import and export, snapshots, and diagnostics.</p><div class="callout"><strong>Recommended workflow:</strong> tune visually first, export JSON when the scene feels right, then copy those values into the effect defaults for production.</div>
+<h2 id="defaults">Change production defaults</h2><pre><code>const DEFAULTS = Object.freeze({
+  particleCount: 160,
+  speed: 0.9,
+  particleSize: 2,
+  intensity: 1,
+  particleColor: "#f7f8ff",
+  accentColor: "#8c73ff",
+  backgroundColor: "#08090c",
+  pointerEnabled: true
+});</code></pre>
+<h2 id="palette">Use design tokens</h2><p>Keep visual effects subordinate to content. The project UI itself uses mostly black, white, restrained purple, and a small green signal color. Your embedded effect can use any six-digit hexadecimal palette.</p><table><thead><tr><th>Token</th><th>Role</th><th>Advice</th></tr></thead><tbody><tr><td><code>particleColor</code></td><td>Primary geometry</td><td>Usually highest contrast</td></tr><tr><td><code>accentColor</code></td><td>Secondary energy, links, glow</td><td>Use brand color carefully</td></tr><tr><td><code>backgroundColor</code></td><td>Canvas clear color</td><td>Match the surrounding section</td></tr></tbody></table>
+<h2 id="embed">Flexible container embedding</h2><pre><code>.anime-background {
+  position: relative;
+  min-height: 420px;
+  overflow: hidden;
+}
+.anime-background canvas {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+}</code></pre><p>The stage also supports <code>data-embed="true"</code> to hide its laboratory controls when you are demonstrating the complete page locally.</p>
+<h2 id="json">Portable JSON configuration</h2><pre><code>{
+  "project": "anime-bg",
+  "effect": "11-aura-energy-field",
+  "schemaVersion": 1,
+  "config": {
+    "particleCount": 180,
+    "speed": 0.8,
+    "accentColor": "#8c73ff"
+  }
+}</code></pre><p>Imported values are validated against controls and clamped to their supported input ranges.</p><footer class="footer">anime-bg documentation. Designed for copyability, performance, accessibility, and maintainable creative coding.</footer></article></main></div></body></html>

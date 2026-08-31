@@ -1,0 +1,33 @@
+{
+  "name": "anime-bg",
+  "version": "3.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Enterprise-grade collection of fifteen flexible, dependency-free anime-inspired HTML Canvas backgrounds built with modern vanilla JavaScript.",
+  "scripts": {
+    "serve": "bunx serve .",
+    "start": "bunx serve .",
+    "verify": "bun scripts/verify.mjs",
+    "check": "bun scripts/verify.mjs",
+    "docs": "bunx serve ."
+  },
+  "keywords": [
+    "anime-background",
+    "javascript",
+    "canvas",
+    "particles",
+    "animation",
+    "creative-coding",
+    "html5-canvas",
+    "visual-effects",
+    "vanilla-javascript",
+    "frontend",
+    "web-animation",
+    "background-effects",
+    "anime-ui"
+  ],
+  "license": "MIT",
+  "engines": {
+    "bun": ">=1.0.0"
+  }
+}
